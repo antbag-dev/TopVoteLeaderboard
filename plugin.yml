@@ -1,5 +1,5 @@
 name: TopMine
-api: [4]
+api: [4.8.1]
 version: 4
 author: reyyoga
 main: reyyoga\Main
