@@ -1,0 +1,9 @@
+name: TopMine
+api: [4]
+version: 4
+author: reyyoga
+main: reyyoga\Main
+
+commands:
+ settopmine:
+     description: set leaderboard location
