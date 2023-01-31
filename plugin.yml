@@ -7,3 +7,7 @@ main: reyyoga\Main
 commands:
  settopmine:
      description: set leaderboard location
+permissions:
+  settopmine.lb:
+    description: topmineleaderboard permission!
+    default: op
