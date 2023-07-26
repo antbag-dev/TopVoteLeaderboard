@@ -1,13 +1,14 @@
 name: TopMineLeaderboard
-api: [4.0.0]
-version: 1.0.0
+api: [5.0.0]
+version: 2.0.0
 author: reyyoga & AlvinHere
 main: reyyoga\Main
 
 commands:
  settopmine:
-     description: set leaderboard location
+     description: "set leaderboard location"
+     permission: "settopmine.lb"
 permissions:
   settopmine.lb:
-    description: topmineleaderboard permission!
+    description: "topmineleaderboard command permission!"
     default: op
