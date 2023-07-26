@@ -28,6 +28,7 @@ class Main extends PluginBase implements Listener{
 	public function onEnable(): void{
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
 		@mkdir($this->getDataFolder() . "topten_data");
+		$this->saveResource("setting.yml");
 		$this->config = (new Config($this->getDataFolder()."config.yml", Config::YAML))->getAll();
 		if(empty($this->config["positions"])){
 			$this->getServer()->getLogger()->Info("Please Set Location");
