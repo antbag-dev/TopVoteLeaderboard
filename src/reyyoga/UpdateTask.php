@@ -10,7 +10,7 @@ class UpdateTask extends Task{
      $this->pl = $pl;
     }
 
-    public function onRun($tick): void{
+    public function onRun(): void{
      $lb = $this->pl->getLeaderBoard();
      $list = $this->pl->getParticles();
      foreach($list as $particle){
