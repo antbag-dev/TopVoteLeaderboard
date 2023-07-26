@@ -1,0 +1,7 @@
+# use {num} to get top player number
+# use {player} to get top player name
+# use {amount} to get the number of player mines
+# use § to get colored text
+
+title-lb: "§7✦ §6TopMineLeaderboard §7✦"
+text-lb: "§f#{num} §e{player} §amined §d{amount} §aores"
