@@ -110,7 +110,7 @@ class Main extends PluginBase implements Listener{
         $i = 1;
         foreach ($swallet as $name => $amount) {
             $tags = str_replace(["{num}", "{player}", "{amount}"], [$i, $name, $amount], $setting->get("text-lb")) . "\n";
-            $message .= $tags;
+            $message .= "\n ".$tags;
             
             if ($i >= 10) {
                 break;
