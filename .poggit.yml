@@ -1,8 +1,8 @@
---- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/AlvinHere/TopMineLeaderboard
+--- # Poggit-CI Manifest. Open the CI at https://poggit.pmmp.io/ci/MyFreds/TopMineLeaderboard
 build-by-default: true
 branches:
 - main
 projects:
-  TopMine:
+  TopMineLeaderboard:
     path: ""
 ...
