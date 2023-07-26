@@ -98,24 +98,28 @@ class Main extends PluginBase implements Listener{
 	}
 	
 	public function getLeaderBoard(): string{
-		$data = new Config($this->getDataFolder() . "topten_data/topmine.yml", Config::YAML);
-		$swallet = $data->getAll();
-		$message = "";
-		$top = "§7✦ §6TopMineLeaderboard §7✦";
-		if(count($swallet) > 0){
-    		arsort($swallet);
-    		$i = 1;
-			foreach ($swallet as $name => $amount) {
-				$message .= "\n ".$i.". §f".$name."  §amined  §f".$amount." §aores\n";
-				if($i >= 10){
-				break;
-                                 }
-		 	++$i;
-			}
-		}
-		$return = (string) $top.$message;
+    $data = new Config($this->getDataFolder() . "topten_data/topmine.yml", Config::YAML);
+    $setting = new Config($this->getDataFolder() . "setting.yml", Config::YAML);
+    $swallet = $data->getAll();
+    $message = "";
+    $top = $setting->get("title-lb");
+    
+    if (count($swallet) > 0) {
+        arsort($swallet);
+        $i = 1;
+        foreach ($swallet as $name => $amount) {
+            $tags = str_replace(["{num}", "{player}", "{amount}"], [$i, $name, $amount], $setting->get("text-lb")) . "\n";
+            $message .= $tags;
+            
+            if ($i >= 10) {
+                break;
+            }
+            ++$i;
+        }
+    }
+	$return = (string) $top.$message;
     	return $return;
-	}
+}
 
 	public function getParticles(): array{
 		return $this->particle;
