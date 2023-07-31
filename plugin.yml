@@ -1,14 +1,14 @@
-name: TopMineLeaderboard
+name: TopVoteLeaderboard
 api: [5.0.0]
 version: 2.0.0
 author: reyyoga & AlvinHere
 main: reyyoga\Main
 
 commands:
- settopmine:
+ settopvote:
      description: "set leaderboard location"
-     permission: "settopmine.lb"
+     permission: "settopvote.lb"
 permissions:
-  settopmine.lb:
+  settopvote.lb:
     description: "topmineleaderboard command permission!"
     default: op

@@ -17,7 +17,7 @@ namespace reyyoga;
  use pocketmine\event\block\BlockBreakEvent;
  use pocketmine\block\Block;
  use pocketmine\block\BlockTypeIds;
-
+ use kingofturkey38\voting38\events\PlayerVoteEvent;
  use pocketmine\utils\Config;
  use pocketmine\math\Vector3;
 
@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener{
 			$config->save();
 			
 			$pluginManager = $this->getServer()->getPluginManager();
-                        $topMinePlugin = $pluginManager->getPlugin("TopMineLeaderboard");
+                        $topMinePlugin = $pluginManager->getPlugin("TopVoteLeaderboard");
                         if ($topMinePlugin !== null) {
                         $pluginManager->disablePlugin($topMinePlugin);
                         $pluginManager->enablePlugin($topMinePlugin);
@@ -62,17 +62,13 @@ class Main extends PluginBase implements Listener{
 		return true;
 	}
 	
-	public function setfarmdata(BlockBreakEvent $event) {
-		$player = $event->getPlayer();
-		$name = $player->getName();
-		$break = $event->getBlock();
-		if($break->getTypeId() === BlockTypeIds::GOLD_ORE || $break->getTypeId() === BlockTypeIds::IRON_ORE || $break->getTypeId() === BlockTypeIds::COAL_ORE || $break->getTypeId() === BlockTypeIds::LAPIS_LAZULI_ORE || $break->getTypeId() === BlockTypeIds::DIAMOND_ORE || $break->getTypeId() === BlockTypeIds::REDSTONE_ORE || $break->getTypeId() === BlockTypeIds::EMERALD_ORE || $break->getTypeId() === BlockTypeIds::NETHER_QUARTZ_ORE){
+	public function PlayerVoteEvent(PlayerVoteEvent $event) {
+	    
 			$data = new Config($this->getDataFolder() . "topten_data/topmine.yml", Config::YAML);
 			$up = $data->get($name);
 			$data->set($name, $up + 1);
 			$data->save();
 		}
-	}
 
 	public function createtopten(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
